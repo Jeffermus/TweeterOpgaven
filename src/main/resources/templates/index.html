@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+   <html xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tweeter</title>
+</head>
+<body>
+    <div class="container">
+		<div class="row">
+			<div class="col">
+				<div id="form-container">
+					<form id="registration-form" action="/postTweeterFact" method="post">
+						<label for="tweeterFact">Insert Your Tweet</label>
+						<input type="text" id="tweeterFact" name="tweeterFact"><br><br>
+						<label for="tweeterPublic">Public</label>
+						<input type="radio" id="tweeterPublic" name="tweeterPublic" value="true">
+						<input type="submit" value="Submit">
+					</form>
+					</div>
+					<div th:if="${not #lists.isEmpty(firstTweeterFact)}">
+						<h2>Counts List</h2>
+						<table class="table table-striped">
+							<tr>
+								<th>Name</th>
+								<th>Text</th>
+								<th>Date</th>
+								<th>Time</th>
+							</tr>
+							<tr th:each ="count:${firstTweeterFact}">
+								<td th:text="${count.getUserName()}"></td>
+								<td th:text="${count.getTweetText()}"></td>
+								<td th:text="${count.getTweetDate()}"></td>
+								<td th:text="${count.getTweetTime()}"></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

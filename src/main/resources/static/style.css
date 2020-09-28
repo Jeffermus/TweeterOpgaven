@@ -1,0 +1,13 @@
+#registration-form{
+	padding: 30px;
+	border:solid;
+	border: 1px dotted;
+}
+
+#form-container{
+	padding-top:50px;
+}
+
+#tweeterFact{
+	width: 300px;
+}
